@@ -1,18 +1,63 @@
 <x-layout>
     <x-slot:titles>{{ $title }}</x-slot>
-        <h3 class="text-xl">Ini Adalah Halaman Home Page</h3>
-        <article>
-            <h2>Contoh Judul</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla aut, fuga ratione illum error sapiente?
-                Neque beatae autem in velit numquam, id aliquid praesentium! Voluptate asperiores odit accusamus
-                voluptatibus mollitia.
-                Beatae, impedit? Consequuntur quaerat commodi eligendi neque magnam excepturi iusto laudantium, libero
-                illo corrupti sit soluta, nulla eveniet voluptates tempora quo eius voluptate optio error beatae
-                mollitia. Nam, similique nostrum?
-                Veritatis nulla inventore illum libero saepe vel assumenda magnam similique unde ea cupiditate, soluta
-                est dolor, provident adipisci tempore at cumque repudiandae repellendus quibusdam accusantium quia?
-                Molestias in facere ex.
-            </p>
-        </article>
+        {{-- {{ dd(date("Y-m-d")); }} --}}
+
+        <div>
+            <table class="border-2 border-spacing-2 border-separate">
+                <thead>
+                    <tr>
+                        <th class="border border-gray-300 dark:border-gray-600">No</th>
+                        <th class="border border-gray-300 dark:border-gray-600">Periode</th>
+                        <th>No SK</th>
+                        <th>Tgl SK</th>
+                        <th>Jenis SK</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>September 2023</td>
+                        <td>KP123812/213</td>
+                        <td>12 September 2023</td>
+                        <td>Organisasi</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Desember 2023</td>
+                        <td>SFP192331/211</td>
+                        <td>9 Desember 2023</td>
+                        <td>APS Reguler</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div>
+            {{-- <canvas id="myChart"></canvas> --}}
+        </div>
+
+        <script>
+            const ctx = document.getElementById('myChart');
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+
 </x-layout>
