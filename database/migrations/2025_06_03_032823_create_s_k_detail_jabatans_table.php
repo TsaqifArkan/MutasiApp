@@ -15,11 +15,11 @@ return new class extends Migration {
             $table->foreignId('sk_rec_id')->constrained(
                 table: 's_k_records',
                 indexName: 'detail_sk_record'
-            );
+            )->onDelete('cascade');
             $table->foreignId('jab_id')->constrained(
                 table: 'jenis_jabatans',
                 indexName: 'detail_jab'
-            );
+            )->onDelete('cascade');
             $table->integer('jumlah', false, true);
             $table->timestamps();
         });

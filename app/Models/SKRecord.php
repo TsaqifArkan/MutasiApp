@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class SKRecord extends Model
 {
@@ -21,4 +22,12 @@ class SKRecord extends Model
         'periode',
         'jenis_sk',
     ];
+
+    /**
+     * Get the detail jabatan for the SK record.
+     */
+    public function rinciJab(): BelongsToMany
+    {
+        return $this->belongsToMany(JenisJabatan::class, 's_k_detail_jabatans', 'sk_rec_id', 'jab_id')->using(SKDetailJabatan::class)->withPivot('jumlah')->withTimestamps();
+    }
 }
