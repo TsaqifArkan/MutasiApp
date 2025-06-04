@@ -17,7 +17,10 @@ class SKRecordFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'tgl_sk' => fake()->date(),
+            'no_sk' => fake()->bothify('KP.##.##/KEP-###/????'),
+            'periode' => fake()->date('Y-m-01'),
+            'jenis_sk' => fake()->sentence(),
         ];
     }
 }
