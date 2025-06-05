@@ -1,7 +1,8 @@
 <x-layout>
     <x-slot:titles>{{ $title }}</x-slot>
-        {{-- {{ dd(date("Y-m-d")); }} --}}
+        {{-- {{ dd(date("Y-m-01")) }} --}}
 
+        <div class="font-bold text-xl my-5">これはまだプロトタイプです</div>
         <div>
             <table class="border-2 border-spacing-2 border-separate">
                 <thead>
@@ -31,7 +32,6 @@
                 </tbody>
             </table>
         </div>
-
 
         <div>
             {{-- <canvas id="myChart"></canvas> --}}
