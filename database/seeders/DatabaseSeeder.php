@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\SKRecord;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(JenisJabatanSeeder::class);
+        $this->call([JenisJabatanSeeder::class, SKRecordSeeder::class, SKDetailJabatanSeeder::class]);
         // User::factory(10)->create();
 
         // User::factory()->create([

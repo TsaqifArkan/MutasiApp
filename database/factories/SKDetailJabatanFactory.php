@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\SKRecord;
+use App\Models\JenisJabatan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,7 @@ class SKDetailJabatanFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            // 
         ];
     }
 }
