@@ -28,6 +28,6 @@ class SKRecord extends Model
      */
     public function rinciJab(): BelongsToMany
     {
-        return $this->belongsToMany(JenisJabatan::class, 's_k_detail_jabatans', 'sk_rec_id', 'jab_id')->using(SKDetailJabatan::class)->withPivot('jumlah')->withTimestamps();
+        return $this->belongsToMany(JenisJabatan::class, 's_k_detail_jabatans', 'sk_rec_id', 'jab_id')->withPivot('jumlah')->withTimestamps();
     }
 }

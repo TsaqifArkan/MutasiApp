@@ -11,7 +11,9 @@
                     <div class="ml-10 flex items-baseline space-x-4">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                        <x-nav-link href="/jen-jab" :active="request()->is('jen-jab')">Jenis Jabatan</x-nav-link>
+                        <x-nav-link href="/all-sk" :active="request()->is('all-sk')">Seluruh SK</x-nav-link>
+                        <x-nav-link href="/jen-jabs" :active="request()->is('jen-jabs')">Jenis Jabatan</x-nav-link>
+                        <x-nav-link href="/sk-jab" :active="request()->is('sk-jab')">SK Record+Jabatan</x-nav-link>
                         <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
                         {{-- <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
@@ -49,8 +51,9 @@
                                 <span class="absolute -inset-1.5"></span>
                                 <span class="sr-only">Open user menu</span>
                                 <img class="size-8 rounded-full"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt="">
+                                    {{-- src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" --}}
+                                    src="{{ asset('img/defusr.png') }}"
+                                    alt="user-profile-icon">
                             </button>
                         </div>
 
@@ -130,8 +133,9 @@
             <div class="flex items-center px-5">
                 <div class="shrink-0">
                     <img class="size-10 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt="">
+                        {{-- src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" --}}
+                        src="{{ asset('img/defusr.png') }}"
+                        alt="user-profile-icon">
                 </div>
                 <div class="ml-3">
                     <div class="text-base/5 font-medium text-white">Tom Cook</div>

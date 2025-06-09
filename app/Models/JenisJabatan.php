@@ -26,6 +26,6 @@ class JenisJabatan extends Model
      */
     public function skRec(): BelongsToMany
     {
-        return $this->belongsToMany(SKRecord::class, 's_k_detail_jabatans', 'jab_id', 'sk_rec_id')->using(SKDetailJabatan::class)->withPivot('jumlah')->withTimestamps();
+        return $this->belongsToMany(SKRecord::class, 's_k_detail_jabatans', 'jab_id', 'sk_rec_id')->withPivot('jumlah')->withTimestamps();
     }
 }

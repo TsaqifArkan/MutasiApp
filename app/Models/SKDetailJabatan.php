@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use App\Models\SKRecord;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class SKDetailJabatan extends Pivot
+class SKDetailJabatan extends Model
 {
     /** @use HasFactory<\Database\Factories\SKDetailJabatanFactory> */
     use HasFactory;
@@ -35,16 +36,16 @@ class SKDetailJabatan extends Pivot
     /**
      * Get the SK record that owns the detail jabatan.
      */
-    // public function skDetJab(): BelongsTo
-    // {
-    //     return $this->belongsTo(related: SKRecord::class);
-    // }
+    public function skDetJab(): BelongsTo
+    {
+        return $this->belongsTo(SKRecord::class, 'sk_rec_id');
+    }
 
     /**
      * Get the SK record that owns the jenis jabatan.
      */
-    // public function skJenJab(): BelongsTo
-    // {
-    //     return $this->belongsTo(related: SKRecord::class);
-    // }
+    public function skJenJab(): BelongsTo
+    {
+        return $this->belongsTo(JenisJabatan::class, 'jab_id');
+    }
 }
