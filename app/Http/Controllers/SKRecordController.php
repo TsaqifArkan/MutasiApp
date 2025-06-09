@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JenisJabatan;
+use App\Models\SKRecord;
 use Illuminate\Http\Request;
 
-class JenisJabatanController extends Controller
+class SKRecordController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $model = JenisJabatan::with('skRec')->get();
+        $model = SKRecord::with('rinciJab')->get();
         // dd($model);
-        return view('jen-jabs.index', ['title' => 'Jenis Jabatan', 'dataJenJab' => $model]);
+        return view('skrec', ['title' => 'Daftar Seluruh SK', 'dataAllSK' => $model]);
     }
 
     /**
@@ -22,8 +22,7 @@ class JenisJabatanController extends Controller
      */
     public function create()
     {
-        // dd("yahhaloooo");
-        return view('jen-jabs.create', ['title' => 'Tambah Data Jenis Jabatan']);
+        //
     }
 
     /**
@@ -31,13 +30,7 @@ class JenisJabatanController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        $data = $request->validate([
-            'kategori' => 'required|in:Struktural,Fungsional',
-            'nama' => 'required|string|max:50',
-        ]);
-        JenisJabatan::create($data);
-        return redirect()->route('jen-jabs.index')->with('success', 'Data berhasil disimpan!');
+        //
     }
 
     /**
