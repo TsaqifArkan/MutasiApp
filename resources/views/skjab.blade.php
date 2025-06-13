@@ -9,6 +9,7 @@
                 <tr>
                     <th class="border border-gray-300 px-4 py-2 w-24">No.</th>
                     <th class="border border-gray-300 px-4 py-2">Nomor SK</th>
+                    <th class="border border-gray-300 px-4 py-2">Tanggal SK</th>
                     <th class="border border-gray-300 px-4 py-2">Jabatan</th>
                     <th class="border border-gray-300 px-4 py-2">Jumlah</th>
                 </tr>
@@ -18,6 +19,7 @@
                     <tr class="">
                         <td class="border border-gray-300 px-4 py-2 w-24">{{ $i++ }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $j->skDetJab->no_sk }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ $j->skDetJab->tgl_sk }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $j->skJenJab->kategori }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $j->jumlah }}</td>
                     </tr>
