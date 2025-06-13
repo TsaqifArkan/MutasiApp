@@ -28,7 +28,9 @@
             </div>
 
             <div class="flex justify-end gap-3">
-                <a href="{{ route('jen-jabs.index') }}" class="text-blue-600 hover:underline">← Kembali</a>
+                <a href="{{ route('jen-jabs.index') }}" type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-500 text-white hover:bg-gray-600 focus:outline-hidden focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none">
+                    ← Kembali
+                </a>
                 <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Simpan</button>
             </div>
         </form>
