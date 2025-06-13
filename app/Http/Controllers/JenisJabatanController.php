@@ -82,6 +82,8 @@ class JenisJabatanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $model = JenisJabatan::findOrFail($id);
+        $model->delete();
+        return redirect()->route('jen-jabs.index')->with('success', 'Data berhasil dihapus!');
     }
 }

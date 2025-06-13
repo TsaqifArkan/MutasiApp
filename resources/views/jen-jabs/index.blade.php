@@ -26,13 +26,20 @@
                     <tr class="">
                         <td class="border border-gray-300 px-4 py-2 w-24">{{ $i++ }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $j->kategori }}</td>
-                        <td class="border border-gray-300 px-4 py-2">
+                        <td class="border border-gray-300 px-4 py-2 flex items-center gap-2">
                             <a href="{{ route('jen-jabs.edit', $j->id)}}" type="button" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 focus:outline-hidden focus:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-400 dark:hover:bg-blue-900 dark:focus:bg-blue-900">
                                 Ubah
                               </a>
-                              <button type="button" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-red-500 text-white hover:bg-red-600 focus:outline-hidden focus:bg-red-600 disabled:opacity-50 disabled:pointer-events-none">
+                              <form action="{{ route('jen-jabs.destroy', $j->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-red-500 text-white hover:bg-red-600 focus:outline-hidden focus:bg-red-600 disabled:opacity-50 disabled:pointer-events-none">
+                                    Hapus
+                                  </button>
+                            </form>
+                              {{-- <button type="button" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-red-500 text-white hover:bg-red-600 focus:outline-hidden focus:bg-red-600 disabled:opacity-50 disabled:pointer-events-none">
                                 Hapus
-                              </button>
+                              </button> --}}
                         </td>
                     </tr>
                 @endforeach
