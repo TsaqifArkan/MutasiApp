@@ -55,7 +55,8 @@ class JenisJabatanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $model = JenisJabatan::find($id);
+        return view('jen-jabs.edit', ['title' => 'Edit Data Jenis Jabatan', 'model' => $model]);
     }
 
     /**
@@ -63,7 +64,17 @@ class JenisJabatanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $pKat = $request->prevKat;
+        $nKat = $request->kategori;
+        $data = JenisJabatan::find($id);
+        $rKat = $pKat == $nKat ? 'required' : 'required|unique:App\Models\JenisJabatan|string|max:70';
+        $request->validate([
+            'kategori' => $rKat,
+        ]);
+        $data->kategori = $nKat;
+        $data->save();
+
+        return redirect()->route('jen-jabs.index')->with('success', 'Data berhasil disimpan!');
     }
 
     /**
