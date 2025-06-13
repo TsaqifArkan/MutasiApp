@@ -1,4 +1,5 @@
 <x-layout>
+    {{-- {{ dd($response) }} --}}
     <x-slot:titles>{{ $title }}</x-slot>
         <div>
             <p>あずきち大好き！！！</p>
@@ -22,19 +23,8 @@
             @csrf
 
             <div>
-                <label for="kategori" class="block font-semibold">Kategori:</label>
-                <select name="kategori" id="kategori" class="border p-2 w-full rounded" required>
-                    <option value="">-- Pilih Kategori --</option>
-                    <option value="Struktural" {{ old('kategori') == 'Struktural' ? 'selected' : '' }}>Struktural
-                    </option>
-                    <option value="Fungsional" {{ old('kategori') == 'Fungsional' ? 'selected' : '' }}>Fungsional
-                    </option>
-                </select>
-            </div>
-            <div>
-                <label for="nama" class="block font-semibold">Nama Jabatan:</label>
-                <input type="text" name="nama" id="nama" value="{{ old('nama') }}" class="border p-2 w-full rounded"
-                    required>
+                <label for="kategori" class="block font-semibold">Kategori Jabatan :</label>
+                <input type="text" name="kategori" id="kategori" value="{{ old('kategori') }}" class="border p-2 w-full rounded">
             </div>
 
             <div class="flex justify-end gap-3">
@@ -42,4 +32,5 @@
                 <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Simpan</button>
             </div>
         </form>
+
 </x-layout>

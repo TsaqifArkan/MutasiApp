@@ -22,8 +22,9 @@ class JenisJabatanController extends Controller
      */
     public function create()
     {
-        // dd("yahhaloooo");
-        return view('jen-jabs.create', ['title' => 'Tambah Data Jenis Jabatan']);
+        $model = JenisJabatan::select('kategori')->distinct()->orderBy('kategori')->pluck('kategori');
+        // dd($model);
+        return view('jen-jabs.create', ['title' => 'Tambah Data Jenis Jabatan', 'model' => $model]);
     }
 
     /**
@@ -31,12 +32,13 @@ class JenisJabatanController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        $data = $request->validate([
-            'kategori' => 'required|in:Struktural,Fungsional',
-            'nama' => 'required|string|max:50',
+        $request->validate([
+            'kategori' => 'required|unique:App\Models\JenisJabatan|string|max:70',
         ]);
-        JenisJabatan::create($data);
+
+        JenisJabatan::create([
+            'kategori' => $request->kategori,
+        ]);
         return redirect()->route('jen-jabs.index')->with('success', 'Data berhasil disimpan!');
     }
 

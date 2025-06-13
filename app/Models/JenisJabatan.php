@@ -17,8 +17,7 @@ class JenisJabatan extends Model
      * @var list<string>
      */
     protected $fillable = [
-        'kategori',
-        'nama',
+        'kategori'
     ];
 
     /**

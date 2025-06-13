@@ -12,8 +12,7 @@ return new class extends Migration {
     {
         Schema::create('jenis_jabatans', function (Blueprint $table) {
             $table->id();
-            $table->string('kategori', 20);
-            $table->string('nama', 50);
+            $table->string('kategori', 100);
             $table->timestamps();
         });
     }

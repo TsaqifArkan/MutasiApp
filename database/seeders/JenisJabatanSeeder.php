@@ -14,38 +14,14 @@ class JenisJabatanSeeder extends Seeder
     public function run(): void
     {
         $datas = [
-            [
-                'kategori' => 'Struktural',
-                'nama' => 'Eselon II'
-            ],
-            [
-                'kategori' => 'Struktural',
-                'nama' => 'Administrator'
-            ],
-            [
-                'kategori' => 'Struktural',
-                'nama' => 'Pengawas'
-            ],
-            [
-                'kategori' => 'Struktural',
-                'nama' => 'Koordinator/Korwas'
-            ],
-            [
-                'kategori' => 'Struktural',
-                'nama' => 'SubKoordinator'
-            ],
-            [
-                'kategori' => 'Fungsional',
-                'nama' => 'Gol II'
-            ],
-            [
-                'kategori' => 'Fungsional',
-                'nama' => 'Gol III'
-            ],
-            [
-                'kategori' => 'Fungsional',
-                'nama' => 'Gol IV'
-            ],
+            ['kategori' => '[STR] Eselon II'],
+            ['kategori' => '[STR] Administrator'],
+            ['kategori' => '[STR] Pengawas'],
+            ['kategori' => '[STR] Koordinator/Korwas'],
+            ['kategori' => '[STR] SubKoordinator'],
+            ['kategori' => '[FUNG] Golongan II'],
+            ['kategori' => '[FUNG] Golongan III'],
+            ['kategori' => '[FUNG] Golongan IV'],
         ];
         foreach ($datas as $data) {
             JenisJabatan::factory()->create($data);
