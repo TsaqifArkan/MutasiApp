@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JenisJabatanController;
 use App\Http\Controllers\SKDetailJabatanController;
 use App\Http\Controllers\SKRecordController;
@@ -11,10 +12,13 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', [JenisJabatanController::class, 'index']);
 
-Route::get('/', function () {
+// Route::get('/', function () {
 
-    return view('home', ['title' => 'Home Page']);
-});
+//     return view('home', ['title' => 'Home Page']);
+// });
+
+Route::get('/', [DashboardController::class, 'index']);
+// ->name('dashboard');
 
 Route::get('/about', function () {
     return view('about', ['name' => 'Tsaqif Muhammad Arkan', 'title' => 'About']);
