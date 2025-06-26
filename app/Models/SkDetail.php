@@ -2,18 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\SKRecord;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class SKDetailJabatan extends Model
+class SkDetail extends Model
 {
-    /** @use HasFactory<\Database\Factories\SKDetailJabatanFactory> */
+    /** @use HasFactory<\Database\Factories\SkDetailFactory> */
     use HasFactory;
 
-    protected $table = 's_k_detail_jabatans';
+    // protected $table = 's_k_detail_jabatans';
 
     /**
      * The attributes that are mass assignable.
@@ -34,17 +32,17 @@ class SKDetailJabatan extends Model
     public $incrementing = true;
 
     /**
-     * Get the SK record that owns the detail jabatan.
+     * Get the SK Record from specified SK Details.
      */
-    public function skDetJab(): BelongsTo
+    public function skDetSkRec(): BelongsTo
     {
-        return $this->belongsTo(SKRecord::class, 'sk_rec_id');
+        return $this->belongsTo(SkRecord::class, 'sk_rec_id');
     }
 
     /**
-     * Get the SK record that owns the jenis jabatan.
+     * Get the Jenis Jabatan from specified SK Details.
      */
-    public function skJenJab(): BelongsTo
+    public function skDetJenJab(): BelongsTo
     {
         return $this->belongsTo(JenisJabatan::class, 'jab_id');
     }

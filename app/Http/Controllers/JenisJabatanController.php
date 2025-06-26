@@ -12,9 +12,10 @@ class JenisJabatanController extends Controller
      */
     public function index()
     {
-        $model = JenisJabatan::with('skRec')->get();
-        // dd($model);
-        return view('jen-jabs.index', ['title' => 'Jenis Jabatan', 'dataJenJab' => $model]);
+        // dd('Halaman Jenis Jabatan');
+        $model = JenisJabatan::with('jenJabSkRec')->get();
+        dd($model);
+        return view('jen-jab.index', ['title' => 'Jenis Jabatan', 'dataJenJab' => $model]);
     }
 
     /**
@@ -24,7 +25,7 @@ class JenisJabatanController extends Controller
     {
         $model = JenisJabatan::select('kategori')->distinct()->orderBy('kategori')->pluck('kategori');
         // dd($model);
-        return view('jen-jabs.create', ['title' => 'Tambah Data Jenis Jabatan', 'model' => $model]);
+        return view('jen-jab.create', ['title' => 'Tambah Data Jenis Jabatan', 'model' => $model]);
     }
 
     /**
@@ -39,7 +40,7 @@ class JenisJabatanController extends Controller
         JenisJabatan::create([
             'kategori' => $request->kategori,
         ]);
-        return redirect()->route('jen-jabs.index')->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('jen-jab.index')->with('success', 'Data berhasil disimpan!');
     }
 
     /**
@@ -56,7 +57,7 @@ class JenisJabatanController extends Controller
     public function edit(string $id)
     {
         $model = JenisJabatan::find($id);
-        return view('jen-jabs.edit', ['title' => 'Edit Data Jenis Jabatan', 'model' => $model]);
+        return view('jen-jab.edit', ['title' => 'Edit Data Jenis Jabatan', 'model' => $model]);
     }
 
     /**
@@ -74,7 +75,7 @@ class JenisJabatanController extends Controller
         $data->kategori = $nKat;
         $data->save();
 
-        return redirect()->route('jen-jabs.index')->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('jen-jab.index')->with('success', 'Data berhasil disimpan!');
     }
 
     /**
@@ -84,6 +85,6 @@ class JenisJabatanController extends Controller
     {
         $model = JenisJabatan::findOrFail($id);
         $model->delete();
-        return redirect()->route('jen-jabs.index')->with('success', 'Data berhasil dihapus!');
+        return redirect()->route('jen-jab.index')->with('success', 'Data berhasil dihapus!');
     }
 }

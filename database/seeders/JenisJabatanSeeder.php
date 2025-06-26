@@ -14,11 +14,13 @@ class JenisJabatanSeeder extends Seeder
     public function run(): void
     {
         $datas = [
-            ['kategori' => '[STR] Eselon II'],
-            ['kategori' => '[STR] Administrator'],
-            ['kategori' => '[STR] Pengawas'],
-            ['kategori' => '[STR] Koordinator/Korwas'],
-            ['kategori' => '[STR] SubKoordinator'],
+            ['kategori' => '[STR] Eselon I / JPTM'],
+            ['kategori' => '[STR] Eselon II / JPTP'],
+            ['kategori' => '[STR] Administrator (KabBag Umum di Pw)'],
+            ['kategori' => '[STR] Pengawas (KaSubBag)'],
+            ['kategori' => '[F_STR] Koordinator'],
+            ['kategori' => '[F_STR] Koordinator Pengawasan'],
+            ['kategori' => '[F_STR] SubKoordinator'],
             ['kategori' => '[FUNG] Golongan II'],
             ['kategori' => '[FUNG] Golongan III'],
             ['kategori' => '[FUNG] Golongan IV'],

@@ -2,14 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\SKRecord;
-use App\Models\JenisJabatan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SKDetailJabatan>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\JenisSk>
  */
-class SKDetailJabatanFactory extends Factory
+class JenisSkFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +17,7 @@ class SKDetailJabatanFactory extends Factory
     public function definition(): array
     {
         return [
-            // 
+            //
         ];
     }
 }

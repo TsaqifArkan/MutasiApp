@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class JenisJabatan extends Model
 {
@@ -23,8 +23,15 @@ class JenisJabatan extends Model
     /**
      * Get the SK Record for Specified Jenis Jabatan.
      */
-    public function skRec(): BelongsToMany
+    public function jenJabSkRec(): HasManyThrough
     {
-        return $this->belongsToMany(SKRecord::class, 's_k_detail_jabatans', 'jab_id', 'sk_rec_id')->withPivot('jumlah')->withTimestamps();
-    }
+        return $this->hasManyThrough(
+            SkRecord::class,    // The final model
+            SkDetail::class,    // The intermediate model
+            'jab_id',           // Foreign key JenisJabatan model on the SkDetail model
+            'id',               // Foreign key JenisJabatan model on the SkRecord model (note that this is the PK of SkRecord)
+            'id',               // Local key (PK) on the JenisJabatan model
+            'sk_rec_id'         // Local key (FK) on the SkDetail model that references the SkRecord
+        )->withTimestamps();
+    }           //      DONE ON 00.13 18/06/2025 NEXT FIX SKRECORDS MODEL!!!
 }

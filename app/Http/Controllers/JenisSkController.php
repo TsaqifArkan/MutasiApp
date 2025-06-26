@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SkRecord;
 use Illuminate\Http\Request;
 
-class SkRecordController extends Controller
+class JenisSkController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $model = SkRecord::with('skRecJenJab')->get();
-        // dd($model);
-        return view('skrec', ['title' => 'Daftar Seluruh SK', 'dataAllSK' => $model]);
+        //
     }
 
     /**

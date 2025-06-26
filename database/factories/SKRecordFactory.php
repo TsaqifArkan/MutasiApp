@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SKRecord>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SkRecord>
  */
-class SKRecordFactory extends Factory
+class SkRecordFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,7 +20,6 @@ class SKRecordFactory extends Factory
             'tgl_sk' => fake()->date(),
             'no_sk' => fake()->bothify('KP.##.##/KEP-###/????'),
             'periode' => fake()->date('Y-m-01'),
-            'jenis_sk' => fake()->sentence(),
         ];
     }
 }

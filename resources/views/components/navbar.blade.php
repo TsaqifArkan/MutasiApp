@@ -10,9 +10,10 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-                        <x-nav-link href="/all-sk" :active="request()->is('all-sk')">Seluruh SK</x-nav-link>
-                        <x-nav-link href="/jen-jabs" :active="request()->is('jen-jabs')">Jenis Jabatan</x-nav-link>
-                        <x-nav-link href="/sk-jab" :active="request()->is('sk-jab')">SK Record+Jabatan</x-nav-link>
+                        <x-nav-link href="/sk-rec" :active="request()->is('sk-rec')">Seluruh SK</x-nav-link>
+                        <x-nav-link href="/jen-jab" :active="request()->is('jen-jab')">Jenis Jabatan</x-nav-link>
+                        <x-nav-link href="/jen-sk" :active="request()->is('jen-sk')">Jenis SK</x-nav-link>
+                        <x-nav-link href="/sk-det" :active="request()->is('sk-det')">SK Details</x-nav-link>
                         <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
                         {{-- <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
@@ -49,10 +50,8 @@
                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                 <span class="absolute -inset-1.5"></span>
                                 <span class="sr-only">Open user menu</span>
-                                <img class="size-8 rounded-full"
-                                    {{-- src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" --}}
-                                    src="{{ asset('img/defusr.png') }}"
-                                    alt="user-profile-icon">
+                                <img class="size-8 rounded-full" {{-- src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" --}}
+                                    src="{{ asset('img/defusr.png') }}" alt="user-profile-icon">
                             </button>
                         </div>
 
@@ -67,11 +66,9 @@
         To: "transform opacity-0 scale-95"
     -->
                         <div x-show="isOpen" x-transition:enter="transition ease-out duration-100 transform"
-                            x-transition:enter-start="opacity-0 scale-95"
-                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
                             x-transition:leave="transition ease-in duration-75 transform"
-                            x-transition:leave-start="opacity-100 scale-100"
-                            x-transition:leave-end="opacity-0 scale-95"
+                            x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
                             class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-hidden"
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                             tabindex="-1">
@@ -94,16 +91,16 @@
                     <span class="absolute -inset-0.5"></span>
                     <span class="sr-only">Open main menu</span>
                     <!-- Menu open: "hidden", Menu closed: "block" -->
-                    <svg :class="{'hidden': isOpen, 'block': !isOpen }"
-                    class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" data-slot="icon">
+                    <svg :class="{ 'hidden': isOpen, 'block': !isOpen }" class="block size-6" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                        data-slot="icon">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                     <!-- Menu open: "block", Menu closed: "hidden" -->
-                    <svg :class="{'block': isOpen, 'hidden': !isOpen }"
-                    class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true" data-slot="icon">
+                    <svg :class="{ 'block': isOpen, 'hidden': !isOpen }" class="hidden size-6" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+                        data-slot="icon">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 </button>
@@ -116,9 +113,10 @@
         <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-            <x-nav-link href="/all-sk" :active="request()->is('all-sk')">Seluruh SK</x-nav-link>
-            <x-nav-link href="/jen-jabs" :active="request()->is('jen-jabs')">Jenis Jabatan</x-nav-link>
-            <x-nav-link href="/sk-jab" :active="request()->is('sk-jab')">SK Record+Jabatan</x-nav-link>
+            <x-nav-link href="/sk-rec" :active="request()->is('sk-rec')">Seluruh SK</x-nav-link>
+            <x-nav-link href="/jen-jab" :active="request()->is('jen-jab')">Jenis Jabatan</x-nav-link>
+            <x-nav-link href="/jen-sk" :active="request()->is('jen-sk')">Jenis SK</x-nav-link>
+            <x-nav-link href="/sk-det" :active="request()->is('sk-det')">SK Details</x-nav-link>
             <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
             {{-- <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
                 aria-current="page">Dashboard</a>
@@ -134,13 +132,11 @@
         <div class="border-t border-gray-700 pt-4 pb-3">
             <div class="flex items-center px-5">
                 <div class="shrink-0">
-                    <img class="size-10 rounded-full"
-                        {{-- src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" --}}
-                        src="{{ asset('img/defusr.png') }}"
+                    <img class="size-10 rounded-full" {{-- src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" --}} src="{{ asset('img/defusr.png') }}"
                         alt="user-profile-icon">
                 </div>
                 <div class="ml-3">
-                    <div class="text-base/5 font-medium text-white">Tom Cook</div>
+                    <div class="text-base/5 font-medium text-white">Aveneraa</div>
                     <div class="text-sm font-medium text-gray-400">tom@example.com</div>
                 </div>
                 {{-- <button type="button"
