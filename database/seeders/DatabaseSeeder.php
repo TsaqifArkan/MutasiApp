@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             JabatanSeeder::class,
             OrgCategSeeder::class,
             OrgSubcategSeeder::class,
+            SkRecordSeeder::class,
         ]);
     }
 }
