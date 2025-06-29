@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sk_types', function (Blueprint $table) {
-            $table->id();
+            $table->tinyIncrements('id');
+            $table->string('nama', 50)->unique();
             $table->timestamps();
         });
     }

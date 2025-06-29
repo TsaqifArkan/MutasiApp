@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jabatans', function (Blueprint $table) {
-            $table->id();
+            $table->smallIncrements('id');
+            $table->string('nama', 50)->unique();
             $table->timestamps();
         });
     }

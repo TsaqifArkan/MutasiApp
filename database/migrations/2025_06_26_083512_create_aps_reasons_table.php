@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('aps_reasons', function (Blueprint $table) {
-            $table->id();
+            $table->tinyIncrements('id');
+            $table->string('nama', 50)->unique();
             $table->timestamps();
         });
     }

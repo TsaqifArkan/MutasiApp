@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('org_subcategs', function (Blueprint $table) {
-            $table->id();
+            $table->tinyIncrements('id');
+            $table->string('nama', 100)->unique();
+            $table->unsignedTinyInteger('org_categ_id');
+            $table->foreign('org_categ_id')
+                ->references('id')->on('org_categs')
+                ->onDelete('cascade')
+                ->index('idx_org_subcateg_org_categ');
             $table->timestamps();
         });
     }
