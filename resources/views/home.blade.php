@@ -1,9 +1,5 @@
 <x-layout>
     <x-slot:titles>{{ $title }}</x-slot>
-    @php
-        // dd($skPer);
-    @endphp
-    {{-- {{ dd(date("Y-m-01")) }} --}}
 
     <div class="font-bold text-xl my-5">これはまだプロトタイプです</div>
 
@@ -14,84 +10,152 @@
         <option value="all" selected>Semua Data</option>
     </select> --}}
 
-    <div class="container px-4 py-4">
-        <div class="container mx-auto p-4">
-            <canvas id="jmlSkThn"></canvas>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+        {{-- Bar Chart: Jumlah SK per Tahun --}}
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="font-semibold text-center mb-2">Jumlah SK per Tahun</h3>
+            <canvas id="barSkPerTahun"></canvas>
         </div>
 
-        <div class="container mx-auto p-4">
-            <canvas id="jmlAsnThn"></canvas>
+        {{-- Bar Chart: Jumlah ASN per Tahun --}}
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="font-semibold text-center mb-2">Jumlah ASN per Tahun</h3>
+            <canvas id="barAsnPerTahun"></canvas>
         </div>
+
+        <!-- Pie Chart: SK per Jenis SK -->
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="font-semibold text-center mb-2">SK per Jenis SK</h3>
+            <canvas id="pieJenisSk"></canvas>
+        </div>
+
+        <!-- Pie Chart: SK per APS Reason -->
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="font-semibold text-center mb-2">SK per APS Reason</h3>
+            <canvas id="pieApsReason"></canvas>
+        </div>
+
+        <!-- Pie Chart: SK per Org Categ -->
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="font-semibold text-center mb-2">SK per Org Categ</h3>
+            <canvas id="pieOrgCateg"></canvas>
+        </div>
+
+        <!-- Bar Chart: SK per Golongan -->
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="font-semibold text-center mb-2">SK per Golongan</h3>
+            <canvas id="barGolongan"></canvas>
+        </div>
+
+        <!-- Bar Chart: SK per Jabatan -->
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="font-semibold text-center mb-2">SK per Jabatan</h3>
+            <canvas id="barJabatan"></canvas>
+        </div>
+
     </div>
 
     <script>
-        const ctx = document.getElementById('jmlSkThn').getContext('2d');
-        const ctx2 = document.getElementById('jmlAsnThn').getContext('2d');
-        const labels = @json($skPer->pluck('tahun'));
-        const jmlSK = @json($skPer->pluck('jml'));
-        const totASN = @json($skPer->pluck('tot_asn'));
-
-        const jmlSkThn = new Chart(ctx, {
-            type: 'bar',
+        const chartPie = (ctx, labels, data, labelText) => new Chart(ctx, {
+            type: 'pie',
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Jumlah SK',
-                    data: jmlSK,
-                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
+                    label: labelText,
+                    data: data,
+                    backgroundColor: [
+                        '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#F67019'
+                    ]
                 }]
             },
             options: {
                 responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 18,
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: labelText,
+                        font: {
+                            size: 20,
+                        }
+                    }
+                }
+            }
+        })
+
+        const chartBar = (ctx, labels, data, labelText) => new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: labelText,
+                    data: data,
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 18,
+                            }
+                        }
+                    },
+                },
                 scales: {
                     y: {
                         beginAtZero: true,
                         ticks: {
-                            precision: 0
+                            precision: 0,
+                            font: {
+                                size: 18,
+                            }
                         },
-                        text: 'Jumlah',
-                        max: Math.max(...jmlSK) + 5
+                        // max: Math.max(...data) + 5, // Set max to one more than the highest value
                     },
                     x: {
                         display: true,
-                        text: 'Tahun SK',
+                        ticks: {
+                            autoSkip: false,
+                            font: {
+                                size: 18,
+                            }
+                        }
                     }
                 }
             }
         });
 
-        const jmlAsnThn = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Jumlah ASN',
-                    data: totASN,
-                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            precision: 0
-                        },
-                        text: 'Jumlah',
-                        // max: Math.max(...data) + 1
-                    },
-                    x: {
-                        display: true,
-                        text: 'Tahun SK',
-                    }
-                }
-            }
-        });
+        // Pie Chart:
+        chartPie(document.getElementById('pieJenisSk'), @json($skPerJenis->pluck('label')), @json($skPerJenis->pluck('total')),
+            'Jenis SK')
+        chartPie(document.getElementById('pieApsReason'), @json($skApsReason->pluck('label')), @json($skApsReason->pluck('total')),
+            'APS Reason');
+        chartPie(document.getElementById('pieOrgCateg'), @json($skOrgCateg->pluck('label')), @json($skOrgCateg->pluck('total')),
+            'Kategori Organisasi');
+
+        // Bar Charts
+        chartBar(document.getElementById('barGolongan'), @json($skByGol->pluck('label')), @json($skByGol->pluck('total')),
+            'Golongan');
+        chartBar(document.getElementById('barJabatan'), @json($skByJab->pluck('label')), @json($skByJab->pluck('total')),
+            'Jabatan');
+        // Bar Charts (lanjutan)
+        chartBar(document.getElementById('barSkPerTahun'), @json($skPerTahun['labels']), @json($skPerTahun['jumlah_sk']),
+            'Jumlah SK per Tahun');
+        chartBar(document.getElementById('barAsnPerTahun'), @json($skPerTahun['labels']), @json($skPerTahun['total_asn']),
+            'Jumlah ASN per Tahun');
     </script>
 
 </x-layout>
