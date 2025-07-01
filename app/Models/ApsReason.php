@@ -29,6 +29,6 @@ class ApsReason extends Model
             SkRecord::class,    // The related model
             'ap_rsn_id',        // Foreign key on the SkRecord model
             'id'                // Local key (PK) on the ApsReason model
-        )->withTimestamps();
+        );
     }
 }

@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ApsReason;
+use App\Models\SkType;
+use App\Models\OrgCateg;
+use App\Models\OrgSubcateg;
 use Illuminate\Http\Request;
 
 class SkTypeController extends Controller
@@ -11,7 +15,12 @@ class SkTypeController extends Controller
      */
     public function index()
     {
-        //
+        $skTyp = SkType::orderBy('id')->get();
+        $orgCat = OrgCateg::orderBy('id')->get();
+        $orgSubC = OrgSubcateg::orderBy('id')->get();
+        $apsRsn = ApsReason::orderBy('id')->get();
+
+        return view('sk-type.index', ['title' => 'Jenis SK', 'datas' => compact('skTyp', 'orgCat', 'orgSubC', 'apsRsn')]);
     }
 
     /**

@@ -17,6 +17,12 @@ class SkRecord extends Model
      * @var list<string>
      */
     protected $fillable = [
+        'sk_typ_id',
+        'og_cat_id',
+        'og_sct_id',
+        'ap_rsn_id',
+        'gol_id',
+        'jab_id',
         'tgl_sk',
         'no_sk',
         'jml_asn',
@@ -25,19 +31,19 @@ class SkRecord extends Model
     /**
      * Get the SkType that owns the SkRecord.
      */
-    public function SkRecSkTyp(): BelongsTo
+    public function skRecSkTyp(): BelongsTo
     {
         return $this->belongsTo(
             SkType::class,      // The related model
             'sk_typ_id',        // Foreign key on the SkRecord model
             'id'                // Local key (PK) on the SkType model
-        )->withTimestamps();
+        );
     }
 
     /**
      * Get the OrgCateg that owns the SkRecord.
      */
-    public function SkRecOrgCat(): BelongsTo
+    public function skRecOrgCat(): BelongsTo
     {
         return $this->belongsTo(
             OrgCateg::class,    // The related model
@@ -49,7 +55,7 @@ class SkRecord extends Model
     /**
      * Get the ApsReason that owns the SkRecord.
      */
-    public function SkRecApsRsn(): BelongsTo
+    public function skRecApsRsn(): BelongsTo
     {
         return $this->belongsTo(
             ApsReason::class,   // The related model
@@ -61,7 +67,7 @@ class SkRecord extends Model
     /**
      * Get the OrgSubcateg that owns the SkRecord.
      */
-    public function SkRecOrgSct(): BelongsTo
+    public function skRecOrgSct(): BelongsTo
     {
         return $this->belongsTo(
             OrgSubcateg::class, // The related model
@@ -73,7 +79,7 @@ class SkRecord extends Model
     /**
      * Get the Golongan that owns the SkRecord.
      */
-    public function SkRecGol(): BelongsTo
+    public function skRecGol(): BelongsTo
     {
         return $this->belongsTo(
             Golongan::class,    // The related model
@@ -85,12 +91,44 @@ class SkRecord extends Model
     /**
      * Get the Jabatan that owns the SkRecord.
      */
-    public function SkRecJab(): BelongsTo
+    public function skRecJab(): BelongsTo
     {
         return $this->belongsTo(
             Jabatan::class,     // The related model
             'jab_id',           // Foreign key on the SkRecord model
             'id'                // Local key (PK) on the Jabatan model
         );
+    }
+
+    public function getJenisSkAttribute(): string
+    {
+        // Cek apakah relasi sudah diload
+        $skType = $this->skRecSkTyp?->nama;
+
+        $suffix = ' ke Jabatan Fungsional / Jabatan Pelaksana';
+
+        if ($skType === 'Organisasi') {
+            $orgCateg = $this->skRecOrgCat?->nama;
+            $orgSub   = $this->skRecOrgSct?->nama;
+            $jabatan  = $this->skRecJab?->nama;
+            if ($orgSub === 'Peralihan') {
+                $jabatan = $jabatan . $suffix;
+            }
+
+            return collect([$skType, $orgCateg, $orgSub, $jabatan])
+                ->filter() // hilangkan null
+                ->implode(', ');
+        }
+
+        if ($skType === 'Atas Permintaan Sendiri (APS)') {
+            $apsReason = $this->skRecApsRsn?->nama;
+            $golongan  = $this->skRecGol?->nama;
+
+            return collect([$skType, $apsReason, $golongan])
+                ->filter()
+                ->implode(', ');
+        }
+
+        return $skType ?? 'Tidak Diketahui';
     }
 }

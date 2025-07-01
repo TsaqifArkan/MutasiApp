@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\JenisSkController;
-use App\Http\Controllers\SkDetailController;
+use App\Http\Controllers\SkTypeController;
+use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\SkRecordController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\JenisJabatanController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -26,8 +26,8 @@ Route::get('/about', function () {
 });
 
 Route::resources([
-    'jen-jab' => JenisJabatanController::class,
-    'jen-sk' => JenisSkController::class,
     'sk-rec' => SkRecordController::class,
-    'sk-det' => SkDetailController::class
+    'jen-sk' => SkTypeController::class,
+    'gol' => GolonganController::class,
+    'jen-jab' => JabatanController::class,
 ]);

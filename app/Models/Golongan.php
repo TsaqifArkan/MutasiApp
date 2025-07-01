@@ -29,6 +29,6 @@ class Golongan extends Model
             SkRecord::class,    // The related model
             'gol_id',           // Foreign key on the SkRecord model
             'id'                // Local key (PK) on the Golongan model
-        )->withTimestamps();
+        );
     }
 }

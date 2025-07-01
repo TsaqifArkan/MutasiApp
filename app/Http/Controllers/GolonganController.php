@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Golongan;
 use Illuminate\Http\Request;
 
 class GolonganController extends Controller
@@ -11,7 +12,11 @@ class GolonganController extends Controller
      */
     public function index()
     {
-        //
+        $model = Golongan::orderBy('id')->get();
+        return view('gol.index', [
+            'title' => 'Daftar Golongan',
+            'datas' => $model
+        ]);
     }
 
     /**

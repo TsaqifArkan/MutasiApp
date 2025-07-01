@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
 use Illuminate\Http\Request;
 
 class JabatanController extends Controller
@@ -11,7 +12,8 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        //
+        $model = Jabatan::orderBy('id')->get();
+        return view('jen-jab.index', ['title' => 'Jenis Jabatan', 'datas' => $model]);
     }
 
     /**

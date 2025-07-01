@@ -31,7 +31,7 @@ class OrgSubcateg extends Model
             SkRecord::class,    // The related model
             'og_sct_id',        // Foreign key on the SkRecord model
             'id'                // Local key (PK) on the OrgSubcateg model
-        )->withTimestamps();
+        );
     }
 
     /**
@@ -43,6 +43,6 @@ class OrgSubcateg extends Model
             OrgCateg::class,    // The related model
             'org_categ_id',     // Foreign key on the OrgSubcateg model
             'id'                // Local key (PK) on the OrgCateg model
-        )->withTimestamps();
+        );
     }
 }

@@ -29,6 +29,6 @@ class Jabatan extends Model
             SkRecord::class,    // The related model
             'jab_id',           // Foreign key on the SkRecord model
             'id'                // Local key (PK) on the Jabatan model
-        )->withTimestamps();
+        );
     }
 }
