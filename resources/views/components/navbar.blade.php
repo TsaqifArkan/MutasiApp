@@ -1,6 +1,6 @@
-<nav class="navbar bg-[#CBCBCB] fixed top-0 left-0 right-0 z-50 p-0.5 shadow-md" x-data="{ isOpen: false }">
+<nav class="bg-[#C5C7BC] fixed top-0 left-0 right-0 z-50 p-0.5 shadow-md" x-data="{ isOpen: false }">
     <div class="mx-auto px-2 sm:px-4 lg:px-6 w-full">
-        <div class="flex h-16 items-center justify-between">
+        <div class="flex h-12 items-center justify-between">
             <!-- LEFT SIDE: Logo -->
             <div class="flex items-center gap-2">
                 <a href="/" class="flex items-center gap-2">

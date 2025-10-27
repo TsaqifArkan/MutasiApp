@@ -12,35 +12,18 @@
     <title>{{ $titles }}</title>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body class="flex flex-col overflow-hidden h-full">
 
     <div class="min-h-full">
         <x-navbar></x-navbar>
-        {{-- <x-header>{{ $titles }}</x-header> --}}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ipsam debitis voluptates. Aspernatur
-        aliquid dolores, voluptatum sed quod dolorem totam quisquam! Sint at possimus id quos sapiente natus iste ea!
-        Deserunt voluptates laboriosam aliquid dicta excepturi nam. Aperiam voluptatibus sit facere dolorem nam dolores
-        delectus. In quia dignissimos eum temporibus. Consequatur, error. Veritatis quis repudiandae dolorem expedita
-        non ea eaque?
-        Quod consequatur accusamus quis? Assumenda, dolorum molestias modi neque veritatis sunt doloremque quae, debitis
-        maxime repellendus temporibus? Odio placeat eligendi saepe pariatur voluptates dolores modi corporis! Alias
-        minima reprehenderit laboriosam.
-        Atque fugit doloremque debitis maxime nulla aut tempora suscipit libero, dicta quo eos consequatur quod, qui
-        aperiam iusto quibusdam. Doloremque fugiat voluptatum voluptatibus fuga similique tempora deleniti consequuntur
-        natus officiis.
-        Qui obcaecati veritatis labore dicta ipsa impedit accusamus vel, quam praesentium et quidem deleniti fugiat quo,
-        commodi voluptates molestias natus architecto voluptate, possimus aliquam eligendi doloribus? Voluptates quaerat
-        fugit rem?
-        <div class="p-8">
-            <button class="btn btn-info">Hello DaisyUI 🌸</button>
+        <div class="flex pt-12 h-screen">
+            <x-sidebar></x-sidebar>
+            <main class="flex-1 p-4 overflow-y-auto bg-[#EEEEEE]">
+                <div class="">
+                    {{ $slot }}
+                </div>
+            </main>
         </div>
-
-        <main>
-            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <!-- Your content -->
-                {{ $slot }}
-            </div>
-        </main>
     </div>
 
 </body>
