@@ -7,18 +7,23 @@
                 <details open>
                     <summary>Master Data</summary>
                     <ul>
-                        <li><a href="#">Pegawai</a></li>
-                        <li><a href="#">Unit Kerja</a></li>
+                        <li><a href="/recap-skmut">Rekap SK Mutasi</a></li>
+                        <li><a href="/recap-skmut/upload">UploadSKMut</a></li>
+                        <li><a href="/sk-rec">SK Pindah Pegawai</a></li>
+                        <li><a href="/jen-sk">Jenis SK</a></li>
+                        <li><a href="/gol">Golongan PNS</a></li>
+                        <li><a href="/jen-jab">Jabatan Struktural</a></li>
                     </ul>
                 </details>
             </li>
 
             <li>
                 <details>
-                    <summary>Transaksi</summary>
+                    <summary>Future Update</summary>
                     <ul>
-                        <li><a href="#">Mutasi</a></li>
-                        <li><a href="#">Promosi</a></li>
+                        <li><a href="/about">About Me</a></li>
+                        <li><a href="#">Rekap Surat Mutasi</a></li>
+                        <li><a href="#">Hasil Pendapat Dokter</a></li>
                     </ul>
                 </details>
             </li>
