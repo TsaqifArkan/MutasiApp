@@ -10,4 +10,10 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    server: {
+        watch: {
+            // ⛔️ Abaikan folder yang bikin Vite error
+            ignored: ["**/vendor/**", "**/public/sk/**"],
+        },
+    },
 });
