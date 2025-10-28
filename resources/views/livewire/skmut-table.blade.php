@@ -20,7 +20,10 @@
                         <td>{{ $s->full_no_sk }}</td>
                         <td>{{ $s->tgl_sk }}</td>
                         <td>{{ $s->ttg_sk }}</td>
-                        <td></td>
+                        <td><a href="{{ asset('/sk/FileSK/' . $s->file_sk) }}" target="_blank"
+                                class="btn btn-info">Lihat
+                                File</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
