@@ -5,7 +5,7 @@
 
             <li>
                 <details open>
-                    <summary>Master Data</summary>
+                    <summary class="font-mono font-bold">Master Data</summary>
                     <ul>
                         <li><a href="/recap-skmut">Rekap SK Mutasi</a></li>
                         <li><a href="/recap-skmut/upload">UploadSKMut</a></li>
@@ -18,12 +18,28 @@
             </li>
 
             <li>
+                <details open>
+                    <summary class="font-mono font-bold">Development</summary>
+                    <ul>
+                        <li><a href="/">List Employees</a></li>
+                        <li><a href="/">List Pangkat Gol</a></li>
+                        <li><a href="/">List Unit Kerja</a></li>
+                        <li><a href="/">List Jenis Mutasi</a></li>
+                        <li><a href="/">Pvt. Jen_Sk_Muts</a></li>
+                        <li><a href="/">Pvt. Hst_Muts</a></li>
+                    </ul>
+                </details>
+            </li>
+
+            <li>
                 <details>
                     <summary>Future Update</summary>
                     <ul>
                         <li><a href="/about">About Me</a></li>
                         <li><a href="#">Rekap Surat Mutasi</a></li>
                         <li><a href="#">Hasil Pendapat Dokter</a></li>
+                        <li><a href="#">Auto LapBul</a></li>
+                        <li><a href="#">Auto SK Upload</a></li>
                     </ul>
                 </details>
             </li>

@@ -153,7 +153,7 @@
             'Jabatan');
         // Bar Charts (lanjutan)
         chartBar(document.getElementById('barSkPerTahun'), @json($skPerTahun['labels']), @json($skPerTahun['jumlah_sk']),
-            'Jumlah SK per Tahun');
+            'SK Mutasi APS & ORG');
         chartBar(document.getElementById('barAsnPerTahun'), @json($skPerTahun['labels']), @json($skPerTahun['total_asn']),
             'Jumlah ASN per Tahun');
     </script>

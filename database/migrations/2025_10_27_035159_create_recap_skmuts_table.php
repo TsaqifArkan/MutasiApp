@@ -12,12 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('recap_skmuts', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedInteger('id', true);
+            $table->primary('id');
             $table->unsignedInteger('no_sk');
             $table->string('full_no_sk', 50)->unique();
             $table->date('tgl_sk');
-            $table->string('ttg_sk');
-            $table->string('file_sk');
+            $table->string('ttg_sk', 200);
+            $table->string('file_sk', 200);
+            $table->unsignedMediumInteger('jml_peg');
             $table->timestamps();
         });
     }

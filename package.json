@@ -34,5 +34,8 @@
     "bugs": {
         "url": "https://github.com/TsaqifArkan/MutasiApp/issues"
     },
-    "homepage": "https://github.com/TsaqifArkan/MutasiApp#readme"
+    "homepage": "https://github.com/TsaqifArkan/MutasiApp#readme",
+    "dependencies": {
+        "apexcharts": "^5.3.5"
+    }
 }

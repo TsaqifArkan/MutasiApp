@@ -16,16 +16,14 @@ class RecapSkmutFactory extends Factory
      */
     public function definition(): array
     {
+        $gen_no_sk = generate_no_sk();
         return [
-            'no_sk' => $this->faker->numberBetween(10, 1000),
-            'full_no_sk' => function () {
-                $prefix = $this->faker->unique()->bothify('KP.##.##/KEP-###');
-                $year = $this->faker->dateTimeBetween('-6 years', 'now', 'Asia/Jakarta')->format('Y');
-                return "{$prefix}/{$year}";
-            },
-            'tgl_sk' => $this->faker->dateTimeBetween('-6 years', 'now', 'Asia/Jakarta')->format('Y-m-d'),
-            'ttg_sk' => $this->faker->randomElement(['Pemindahan ORG', 'Pemindahan APS', 'Pemberhentian dari Jabatan Administrasi', 'Pengangkatan dan Pemindahan Koordinator']),
-            'file_sk' => $this->faker->filePath('pdf'),
+            'no_sk' => $gen_no_sk['no_sk'],
+            'full_no_sk' => $gen_no_sk['full_no_sk'],
+            'tgl_sk' => $gen_no_sk['tgl_sk'],
+            'ttg_sk' => generate_ttg_sk(),
+            'file_sk' => $this->faker->filePath(),
+            'jml_peg' => $this->faker->numberBetween(1, 500),
         ];
     }
 }

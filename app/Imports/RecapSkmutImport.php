@@ -33,6 +33,7 @@ class RecapSkmutImport implements ToModel, WithHeadingRow, WithCalculatedFormula
             'tgl_sk'    => $tglExcel,
             'ttg_sk'    => $row['tentang'] ?? null,
             'file_sk'   => $path ?? null,
+            'jml_peg'   => $row['jml_peg'] ?? null,
         ]);
     }
 }
