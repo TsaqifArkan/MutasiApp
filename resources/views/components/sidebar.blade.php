@@ -26,7 +26,7 @@
                         <li><a href="/">List Unit Kerja</a></li>
                         <li><a href="/">List Jenis Mutasi</a></li>
                         <li><a href="/">Pvt. Jen_Sk_Muts</a></li>
-                        <li><a href="/">Pvt. Hst_Muts</a></li>
+                        <li><a href="/hist-mts">Pvt. Hst_Muts</a></li>
                     </ul>
                 </details>
             </li>
