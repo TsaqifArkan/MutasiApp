@@ -12,7 +12,7 @@ class HistMutController extends Controller
      */
     public function index()
     {
-        $data = HistMut::with(['histMutRecSk', 'histMutEmp', 'histMutUKBef', 'histMutUKAft', 'histMutJenMut'])->paginate(100);
+        $data = HistMut::with(['histMutRecSk', 'histMutEmp', 'histMutUKBef', 'histMutUKAft', 'histMutJenMut'])->orderBy('id')->paginate(100);
         // dd(HistMut::with('histMutRecSk')->first()->toArray());
         return view('hist-mut.index', ['title' => 'History Mutation', 'datas' => $data]);
     }

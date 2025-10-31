@@ -21,7 +21,7 @@
                 <details open>
                     <summary class="font-mono font-bold">Development</summary>
                     <ul>
-                        <li><a href="/">List Employees</a></li>
+                        <li><a href="/emp">List Employees</a></li>
                         <li><a href="/">List Pangkat Gol</a></li>
                         <li><a href="/">List Unit Kerja</a></li>
                         <li><a href="/">List Jenis Mutasi</a></li>

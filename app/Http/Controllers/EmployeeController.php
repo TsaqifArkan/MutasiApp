@@ -12,7 +12,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $data = Employee::with(['empGpkt'])->orderBy('id')->paginate(100);
+        return view('emp.index', ['title' => 'Daftar Pegawai', 'datas' => $data]);
     }
 
     /**

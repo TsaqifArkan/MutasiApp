@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Employee extends Model
@@ -33,5 +34,13 @@ class Employee extends Model
     public function empHist(): HasMany
     {
         return $this->hasMany(HistMut::class, 'emp_id', 'id');
+    }
+
+    /**
+     * Get the Golongan/Pangkat that owns by Employee.
+     */
+    public function empGpkt(): BelongsTo
+    {
+        return $this->belongsTo(GolPkt::class, 'gpk_id', 'id');
     }
 }
