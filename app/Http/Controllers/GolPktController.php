@@ -12,7 +12,8 @@ class GolPktController extends Controller
      */
     public function index()
     {
-        //
+        $data = GolPkt::all();
+        return view('gol-pkt.index', ['title' => 'Daftar Pangkat dan Golongan', 'datas' => $data]);
     }
 
     /**

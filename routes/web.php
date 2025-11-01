@@ -7,6 +7,7 @@ use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\SkRecordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\GolPktController;
 use App\Http\Controllers\HistMutController;
 use App\Http\Controllers\RecapSkmutController;
 use App\Livewire\Counter;
@@ -40,4 +41,5 @@ Route::resources([
     'jen-jab' => JabatanController::class,
     'hist-mts' => HistMutController::class,
     'emp' => EmployeeController::class,
+    'gol-pkt' => GolPktController::class,
 ]);
