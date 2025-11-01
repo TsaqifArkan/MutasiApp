@@ -12,7 +12,8 @@ class UnitController extends Controller
      */
     public function index()
     {
-        //
+        $data = Unit::all();
+        return view('unit.index', ['title' => 'Daftar Unit Kerja', 'datas' => $data]);
     }
 
     /**

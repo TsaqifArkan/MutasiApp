@@ -10,6 +10,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\GolPktController;
 use App\Http\Controllers\HistMutController;
 use App\Http\Controllers\RecapSkmutController;
+use App\Http\Controllers\UnitController;
 use App\Livewire\Counter;
 
 // Route::get('/', function () {
@@ -42,4 +43,5 @@ Route::resources([
     'hist-mts' => HistMutController::class,
     'emp' => EmployeeController::class,
     'gol-pkt' => GolPktController::class,
+    'unit' => UnitController::class,
 ]);

@@ -23,7 +23,7 @@
                     <ul>
                         <li><a href="/emp">List Employees</a></li>
                         <li><a href="/gol-pkt">List Pangkat Gol</a></li>
-                        <li><a href="/">List Unit Kerja</a></li>
+                        <li><a href="/unit">List Unit Kerja</a></li>
                         <li><a href="/">List Jenis Mutasi</a></li>
                         <li><a href="/">Pvt. Jen_Sk_Muts</a></li>
                         <li><a href="/hist-mts">Pvt. Hst_Muts</a></li>
