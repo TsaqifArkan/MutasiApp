@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JenMut;
+use App\Models\JenSkMut;
 use Illuminate\Http\Request;
 
-class JenMutController extends Controller
+class JenSkMutController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = JenMut::all();
-        return view('jen-mts.index', ['title' => 'Daftar Jenis Mutasi', 'datas' => $data]);
+        $data = JenSkMut::with(['jenSkMutRecSk', 'jenSkMutJenMut'])->orderBy('id')->paginate(100);
+        return view('jen-sk-mts.index', ['title' => 'Multiple Jenis SK Mutasi', 'datas' => $data]);
     }
 
     /**
@@ -35,7 +35,7 @@ class JenMutController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(JenMut $jenMut)
+    public function show(string $id)
     {
         //
     }
@@ -43,7 +43,7 @@ class JenMutController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(JenMut $jenMut)
+    public function edit(string $id)
     {
         //
     }
@@ -51,7 +51,7 @@ class JenMutController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, JenMut $jenMut)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -59,7 +59,7 @@ class JenMutController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JenMut $jenMut)
+    public function destroy(string $id)
     {
         //
     }

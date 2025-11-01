@@ -24,8 +24,8 @@
                         <li><a href="/emp">List Employees</a></li>
                         <li><a href="/gol-pkt">List Pangkat Gol</a></li>
                         <li><a href="/unit">List Unit Kerja</a></li>
-                        <li><a href="/">List Jenis Mutasi</a></li>
-                        <li><a href="/">Pvt. Jen_Sk_Muts</a></li>
+                        <li><a href="/jen-mts">List Jenis Mutasi</a></li>
+                        <li><a href="/jen-sk-mts">Pvt. Jen_Sk_Muts</a></li>
                         <li><a href="/hist-mts">Pvt. Hst_Muts</a></li>
                     </ul>
                 </details>
@@ -36,7 +36,7 @@
                     <summary>Future Update</summary>
                     <ul>
                         <li><a href="/about">About Me</a></li>
-                        <li><a href="#">Rekap Surat Mutasi</a></li>
+                        <li><a href="#">Rekap Surat Mutasi (GSpreadSheet)</a></li>
                         <li><a href="#">Hasil Pendapat Dokter</a></li>
                         <li><a href="#">Auto LapBul</a></li>
                         <li><a href="#">Auto SK Upload</a></li>

@@ -9,9 +9,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\GolPktController;
 use App\Http\Controllers\HistMutController;
+use App\Http\Controllers\JenMutController;
+use App\Http\Controllers\JenSkMutController;
 use App\Http\Controllers\RecapSkmutController;
 use App\Http\Controllers\UnitController;
-use App\Livewire\Counter;
+use App\Models\JenSkMut;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -44,4 +46,6 @@ Route::resources([
     'emp' => EmployeeController::class,
     'gol-pkt' => GolPktController::class,
     'unit' => UnitController::class,
+    'jen-mts' => JenMutController::class,
+    'jen-sk-mts' => JenSkMutController::class,
 ]);
