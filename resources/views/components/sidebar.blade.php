@@ -40,6 +40,7 @@
                         <li><a href="#">Hasil Pendapat Dokter</a></li>
                         <li><a href="#">Auto LapBul</a></li>
                         <li><a href="#">Auto SK Upload</a></li>
+                        <li><a href="/rpl">Ren-Peg-Last</a></li>
                     </ul>
                 </details>
             </li>
